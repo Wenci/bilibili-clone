@@ -1,0 +1,28 @@
+(function(){
+    var bannerConfig = {"background":"http:\/\/i0.hdslb.com\/headers\/7b203ffdff77c5ec3659ca7648abdafc.png","logo":"http:\/\/i1.hdslb.com\/headers\/8bc8c8e900022f87b0a536875d4655ed.png","url":"http:\/\/t.dianping.com\/movie\/1492","title":"\u5728\u7ebf\u8d2d\u7968\u770b\u5377\u798f"};
+    var box = getElementsByClassName("header")[0];
+    var logo = getElementsByClassName("logo")[0];
+    var mask = getElementsByClassName("b-header-mask-bg")[0];
+
+    if(bannerConfig.background && box) {
+        box.style.backgroundImage = 'url(' + bannerConfig.background + ')';
+        mask.style.backgroundImage = 'url(' + bannerConfig.background + ')';
+        box.setAttribute('data-title', bannerConfig.title);
+    }
+    if(bannerConfig.logo && logo) {
+        logo.style.backgroundImage = 'url(' + bannerConfig.logo + ')';
+    }
+    if(bannerConfig.url && box) {
+        box.innerHTML = '<a class="header-link" href="' + bannerConfig.url + '" target="_blank" ></a>' + box.innerHTML;
+    }
+
+    function getElementsByClassName(className,tagName){
+        var ele = [], all = document.getElementsByTagName(tagName || "*");
+        for(var i=0; i<all.length; i++){
+            if(all[i].className == className){
+                ele[ele.length] = all[i];
+            }
+        }
+        return ele;
+    }
+})();
